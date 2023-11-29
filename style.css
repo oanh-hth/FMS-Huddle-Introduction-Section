@@ -3,31 +3,32 @@
 :root {
     --purple-600: 257, 40%, 49%;
     --magenta-600: 300, 69%, 71%;
+    --magenta-800: 322, 100%, 66%;
     --white: #fff;
 
-    --text-base: 1rem;
-    --text-sm: 0.75rem;
-    --text-lg: 1.5rem;
+    --fs-heading: 1.5rem;
+    --lh-heading: 2.25rem;
+    --fs-body: 1rem;
+    --lh-body: 1.5rem;
+    --fs-button: 0.75rem;
+    --ln-button: 1.125rem;
 
-    --space-1: 0.68rem;
-    --space-2: 1rem;
-    --space-3: 1.5rem;
-    --space-4: 3.75rem;
-    --space-5: 4.36rem;
+    --fw-normal: 400;
+    --fw-bold: 600;
 
-    --rounded: 1.25rem;
+    --icon-height: 1.75rem;
+    --icon-width: 1.69638rem;
 
-    --size-icon: 1.75rem;
+    --btn-height: 2.5rem;
+    --radius: 1.25rem;
 
-    --size-logo: 7.5rem;
+    --logo-width: 7.5rem;
+   
 }
 
 /*========= CSS Base ========*/
 *, *::before, *::after {
     box-sizing: border-box;
-}
-
-* {
     margin: 0;
 }
 
@@ -36,45 +37,70 @@ img {
     max-width: 100%;
 }
 
-/* The overflow-wrap property lets us tweak the line-wrapping algorithm, and give it permission to use hard wraps when no soft wrap opportunities can be found */
-/* p, h1 {
-    overflow-wrap: break-word;
-} */
-
 body {
-    -webkit-font-smoothing: antialiased;
     font-family: 'Poppins', sans-serif;
-    font-size: var(--text-base);
-    font-weight: 400;
+    font-size: var(--fs-body);
+    font-weight: var(--fw-normal);
     color: var(--white);
-    text-align: center;
-    line-height: 1.5;
+    line-height: var(--lh-body);
     -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
     background-color: hsl(var(--purple-600));
-    padding: 2.5rem;
     background-image: url("./images/bg-mobile.svg");
     background-repeat: no-repeat;
     background-size: contain;
-    min-height: 100vh;
 }
 
 h1 {
-    font-weight: 600;
-    font-size: var(--text-lg);
-    margin: 0;
+    font-size: var(--fs-heading);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-heading);
+    margin-bottom: 1rem;
+}
+
+.container {
+    max-width: calc(100vw - 5rem);
+    margin-inline: auto;
+}
+
+header {
+    margin-block: 2.39rem 4.36rem;
+    padding-inline: 2.5rem;
+}
+
+article {
+    display: grid;
+    gap: 3.75rem;
+    padding-inline: 2.25rem;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+footer {
+    margin-bottom: 2.5rem;
+}
+
+.logo {
+    width: var(--logo-width);
 }
 
 ul {
     list-style: none;
     padding: 0;
     display: flex;
-    gap: var(--space-1);
+    gap: 0.68rem;
     justify-content: center;
 }
 
 li {
-    width: var(--size-icon);
-    height: var(--size-icon);
+    width: var(--icon-width);
+    height: var(--icon-height);
     border-radius: 50%;
     border: 1px solid white;
     display: flex;
@@ -88,26 +114,29 @@ li > a {
 
 a:hover, 
 a:focus {
-    color: hsl(var(--magenta-600));
+    color: hsl(var(--magenta-800));
     outline: none;
 }
 
 li:has(a:hover, a:focus) {
-    border-color: hsl(var(--magenta-600));
+    border-color: hsl(var(--magenta-800));
 }
 
 button {
-    display: inline-block;
+    display: block;
     border: none;
     outline: none;
     cursor: pointer;
-    border-radius: var(--rounded);
-    box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.27);
     color: hsl(var(--purple-600));
-    font: inherit;
-    font-size: var(--text-sm);
-    padding: 0.71rem 4rem 0.67rem;
+    font-family: inherit;
+    font-size: var(--fs-button);
+    line-height: var(--ln-button);
+    width: 12.5rem;
+    height: var(--btn-height);
     background-color: var(--white);
+    border-radius: var(--radius);
+    box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.27);
+    margin-top: 1.5rem;
 }
 
 button:hover,
@@ -116,76 +145,50 @@ button:focus {
     color: var(--white);
 }
 
-header img {
-    width: var(--size-logo);
-}
-
-header {
-    margin-bottom: var(--space-5);
-}
-
-article {
-    display: grid;
-    gap: var(--space-4);
-    margin-bottom: 4rem;
-}
-
-.content {
-    display: grid;
-    gap: var(--space-2);
-    align-self: baseline;
-}
-
-.content div {
-    display: grid;
-    gap: var(--space-3)
-}
-
 @media screen and (min-width: 768px) {
     :root {
-        --text-base: 1.125rem;
-        --text-sm: 1.125rem;
-        --text-lg: 2.5rem;
+        --btn-height: 3.5rem;
+        --icon-height: 2.5rem;
+        --icon-width: 2.5rem;
 
-        --space-1: 1rem;
-        --space-2: 1.5rem;
-        --space-4: 3.69rem;
-        --space-5: 6.5rem;
+        --fs-heading: 2.5rem;
+        --lh-heading: 3.75rem;
+        --fs-body: 1.125rem;
+        --lh-body: 1.6875rem;
+        --fs-button: 1.125rem;
+        --ln-button: 1.6875rem;
 
-        --rounded: 1.75rem;
-
-        --size-icon: 2.5rem;
-
-        --size-logo: 12.5rem;
+        --radius: 1.75rem;
+        --logo-width: 12.5rem;
     }
 
+
     body {
-        padding: 4rem 5rem 2.5rem;
-        background-image: none;
+        background-image: url("./images/bg-desktop.svg");
+        background-size: auto 100%;
+        background-repeat: no-repeat;
     }
 
     h1 {
-        margin-top: 1.42rem;
+        margin-bottom: 1.5rem;
+    }
+
+    header {
+        margin-block: 4rem 5.75rem;
     }
 
     article {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 43.5rem 1fr;
+        gap: 3.69rem;
+    }
+
+    .content {
         text-align: left;
+        align-items: flex-start;
     }
 
     ul {
         justify-content: flex-end;
     }
-
-    button {
-        width: fit-content;
-        padding-block: 0.8rem 1rem;
-    }
 }
 
-@media screen and (min-width: 1440px) {
-    body {
-        background-image: url("./images/bg-desktop.svg");
-        background-position-x: -100%;
-    }
-}
