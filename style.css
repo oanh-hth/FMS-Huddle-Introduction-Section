@@ -160,17 +160,17 @@ button:focus {
 
     body {
         background-image: url("./images/bg-desktop.svg");
-        background-size: cover;
         padding: 4rem 5rem 2.5rem;
+        background-attachment: local;
     }
 
     h1 {
-        margin-block: 2rem 1.5rem;
-        max-width: 20ch;
+        margin-block: 2rem 1.5rem;    
     }
 
     article {
-        grid-template-columns: 52% 1fr;
+        max-width: 80rem;
+        grid-template-columns: 43.5rem 32.5rem;
     }
 
     .content {
